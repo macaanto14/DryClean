@@ -1,0 +1,294 @@
+﻿@{
+    ViewData["Title"] = "Add Laundry";
+
+}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="~/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="~/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/dist/css/adminlte.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+
+
+    <!-- Script -->
+    <script src="~/dist/js/jquery.min.js"></script>
+    <script src="~/dist/js/wayfinder.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+    <script>
+        $(document).ready(function () {
+            jQuery('.load-animate').waypoint({
+                triggerOnce: true,
+                offset: '80%',
+                handler: function () {
+                    jQuery(this).addClass('animated fadeInUp');
+                }
+            });
+        });
+    </script>
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Order Page</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">New Order</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Main content -->
+                            <div class="invoice p-3 mb-3">
+                                <!-- title row -->
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h4>
+                                            <i class="fas fa-globe"></i> eLaundry
+                                            <small class="float-right">GWL</small>
+                                        </h4>
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- info row -->
+                                <div class="row invoice-info">
+                                    <div class="col-sm-4 invoice-col">
+                                        <label for="inputName">Customer Name</label>
+                                        <input type="text" id="inputName" class="form-control">
+                                        <label>Delivery Date:</label>
+                                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" />
+                                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-4 invoice-col">
+                                        <label for="inputName">Phone Number</label>
+                                        <input type="text" id="inputName" class="form-control">
+                                        <label>Order ID</label>
+                                        <input type="text" class="form-control" placeholder="" disabled>
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-4 invoice-col">
+                                        <b>Invoice Number</b><input type="text" class="form-control" placeholder="" disabled><br>
+                                        <br>
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- /.row -->
+                                <!-- Table row -->
+                                <div class="row">
+                                    <div class="col-12 table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th width="2%"><input id="check_all" class="formcontrol" type="checkbox" /></th>
+                                                    <th>Item No</th>
+                                                    <th>Item Name</th>
+                                                    <th>Price</th>
+                                                    <th>Quantity</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><input class="case" type="checkbox" /></td>
+                                                    <td><input type="text" data-type="productCode" name="data[Invoice][itemNo][]" id="itemNo_1" class="form-control autocomplete_txt" autocomplete="on"></td>
+                                                    <td><input type="text" data-type="productName" name="data[Invoice][itemName][]" id="itemName_1" class="form-control autocomplete_txt" autocomplete="on"></td>
+                                                    <td><input type="number" name="data[Invoice][price][]" id="price_1" class="form-control changesNo" autocomplete="on" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;"></td>
+                                                    <td><input type="number" name="data[Invoice][quantity][]" id="quantity_1" class="form-control changesNo" autocomplete="on" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;"></td>
+                                                    <td><input type="number" name="data[Invoice][total][]" id="total_1" class="form-control totalLinePrice" autocomplete="on" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;"></td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- /.row -->
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+                                            <button class="btn btn-danger delete" type="button">- Delete</button>
+                                            <button class="btn btn-success addmore" type="button">+ Add More</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card-default">
+                                <div class="card-header">
+                                    <h3>Details</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+
+                                            <!-- /.form-group -->
+                                            <div class="form-group">
+                                                <label>Subtotal: &nbsp;</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon currency">$</div>
+                                                    <input value="" type="number" class="form-control" name="data[subTotal]" id="subTotal" placeholder="Subtotal" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;">
+                                                </div>
+                                            </div>
+                                            <!-- /.form-group -->
+                                        </div>
+                                        <div class="col-md-6">
+                                            <!-- /.form-group -->
+                                            <div class="form-group">
+                                                <label>Total: &nbsp;</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon currency">$</div>
+                                                    <input value="" type="number" class="form-control" name="data[totalAftertax]" id="totalAftertax" placeholder="Total" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;">
+                                                </div>
+                                            </div>
+                                            <!-- /.form-group -->
+                                            <div class="form-group">
+                                                <label>Amount Paid: &nbsp;</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon currency">$</div>
+                                                    <input value="" type="number" class="form-control" name="data[amountPaid]" id="amountPaid" placeholder="Amount Paid" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;">
+                                                </div>
+                                            </div>
+                                            <!-- /.form-group -->
+                                            <div class="form-group">
+                                                <label>Amount Due: &nbsp;</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon currency">$</div>
+                                                    <input value="" type="number" class="form-control amountDue" name="data[amountDue]" id="amountDue" placeholder="Amount Due" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col -->
+                                    </div>
+                                    <!-- /.row -->
+                                    <!-- this row will not appear when printing -->
+                                    <div class="row no-print">
+                                        <div class="col-12">
+                                            <button data-loading-text="Saving Invoice..." type="submit" name="invoice_btn" value="Save Invoice" class="btn btn-success submit_btn invoice-save-btm">
+                                                <i class="far fa-credit-card"></i> Submit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.invoice -->
+                            </div><!-- /.col -->
+
+                        </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </section>
+            <!-- /.content -->
+        </div>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+        <!-- ./wrapper -->
+    </div>
+    <script src="~/build/js/AdminLTE.js"></script>
+    <script src="~/build/js/Toasts.js"></script>
+    <script src="~/build/js/ControlSidebar.js"></script>
+    <script src="~/build/js/Treeview.js"></script>
+    <script src="~/build/js/CardRefresh.js"></script>
+    <script src="~/build/js/Dropdown.js"></script>
+    <script src="~/dist/js/jquery-ui.min.js"></script>
+    <script src="~/dist/js/ajax.js"></script>
+    <script src="~/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- bs-custom-file-input -->
+    <script src="~/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/dist/js/adminlte.min.js"></script>
+    <script>
+        $('.submit_btn').on('click', function () {
+            $(this).button('loading');
+        });
+
+        $(document).ready(function () {
+            $('.currency').html($('#currency').val());
+        });
+
+        $('#clientCompanyName').autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: 'ajax.js',
+                    dataType: "json",
+                    method: 'post',
+                    data: {
+                        name_startsWith: request.term,
+                        type: 'customerName'
+                    },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            var code = item.split("|");
+                            return {
+                                label: code[1],
+                                value: code[1],
+                                data: item
+                            }
+                        }));
+                    }
+                });
+            },
+            autoFocus: true,
+            minLength: 1,
+            select: function (event, ui) {
+                var names = ui.item.data.split("|");
+                $(this).val(names[1]);
+                getClientAddress(names[0]);
+            }
+        });
+        function getClientAddress(id) {
+
+            $.ajax({
+                url: "ajax.js",
+                method: 'post',
+                data: { id: id, type: 'clientAddress' },
+                success: function (result) {
+                    $("#clientAddress").html(result);
+                }
+            });
+        }
+
+    </script>
+    <script src="~/dist/js/bootstrap.min.js"></script>
+    <script src="~/dist/js/bootstrap-datepicker.js"></script>
+
+</body>
+</html>
